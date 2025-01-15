@@ -12,26 +12,52 @@ function App() {
   const [taskList, setTaskList] = useAtom(taskListAtom);
   const [checked, setChecked] = useState(false);
 
-  
+  const handleAddTask = (task) => {
+    setTaskList((prev) => [...prev, task]);
+  };
+
+  const handleDeleteTask = (taskId) => {
+    setTaskList((prev) => prev.filter((task) => task.id !== taskId));
+  };
+
+  const handleUpdateTaskStatus = (taskId) => {
+    setTaskList((prev) =>
+      prev.map((task) =>
+        task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
+      )
+    );
+  };
 
   const handleIsCheckedSwitchToggle = () => {
     setChecked((prev) => !prev);
   };
+
+  const percentage = Math.floor(
+    taskList.length === 0
+      ? 0
+      : (taskList.filter((task) => task.isCompleted).length / taskList.length) *
+          100
+  );
+
   return (
     <JotaiProvider>
-    <div className="p-4 flex justify-center items-center h-screen">
-      <main className="pt-10 pb-4 border border-gray-200/30 w-[500px] grid grid-cols-1 grid-rows-[1fr_auto] rounded-lg bg-gradient-to-t from-[#efe3f4] to-[#eaf7f8]">
-        <div className="flex flex-col">
-          <Header title="Todo List" description="Add things to do" />
-          <div className="h-[2px] bg-[#c7c5c5] mx-4" />
-          <Progress percentage={50} />
-          <TaskList taskList={taskList} />
-          <div className="h-[2px] bg-[#c7c5c5] mx-4" />
-          <Switch checked={checked} onChange={handleIsCheckedSwitchToggle} />
-        </div>
-        <AddTask />
-      </main>
-    </div>
+      <div className="p-4 flex justify-center items-center h-screen">
+        <main className="pt-10 pb-4 border border-gray-200/30 w-[500px] grid grid-cols-1 grid-rows-[1fr_auto] rounded-lg bg-gradient-to-t from-[#efe3f4] to-[#eaf7f8]">
+          <div className="flex flex-col">
+            <Header title="Todo List" description="Add things to do" />
+            <div className="h-[2px] bg-[#c7c5c5] mx-4" />
+            <Progress percentage={percentage} />
+            <TaskList
+              taskList={taskList}
+              onDeleteTask={handleDeleteTask}
+              onUpdateTaskStatus={handleUpdateTaskStatus}
+            />
+            <div className="h-[2px] bg-[#c7c5c5] mx-4" />
+            <Switch checked={checked} onChange={handleIsCheckedSwitchToggle} />
+          </div>
+          <AddTask onAddTask={handleAddTask} />
+        </main>
+      </div>
     </JotaiProvider>
   );
 }
