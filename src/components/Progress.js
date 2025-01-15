@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+* 進度條組件：用於顯示任務完成百分比
+* @param {number} percentage - 任務完成百分比
+ * **/
 function Progress ({ percentage = 0 }) {
   return (
     <div className="p-4 flex items-center gap-2">

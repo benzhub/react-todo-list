@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+* 標題組件：用於顯示標題和描述
+* @param {string} title - 標題文字
+* @param {string} description - 描述文字
+ * **/
 function Header ({title="", description=""}) {
   return (
     <nav className="p-4 pt-10">
