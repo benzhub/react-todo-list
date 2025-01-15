@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import classNames from "classnames";
 import Checkbox from "./Checkbox";
 
 function TaskList({ taskList, onDeleteTask, onUpdateTaskStatus }) {
+  const bottomRef = useRef(null);
+  const prevLengthRef = useRef(taskList.length);
+
+  useEffect(() => {
+    // 只有當任務數量增加時才滾動
+    if (taskList.length > prevLengthRef.current) {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    prevLengthRef.current = taskList.length;
+  }, [taskList.length]);
+
   return (
     <div className="pb-4">
       <div className="flex flex-col gap-3 h-[260px] overflow-y-scroll px-4">
@@ -24,6 +35,7 @@ function TaskList({ taskList, onDeleteTask, onUpdateTaskStatus }) {
             <button className="text-gray-500 font-bold" onClick={() => onDeleteTask(task.id)}>&#x2715;</button>
           </div>
         ))}
+        <div ref={bottomRef} />
       </div>
     </div>
   );
