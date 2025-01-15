@@ -1,24 +1,32 @@
 import React from "react";
 import classNames from "classnames";
+import Checkbox from "./Checkbox";
 
-const TaskList = ({ taskList }) => {
+function TaskList({ taskList }) {
   return (
-    <div className="pl-4 pb-4">
-      <div className="flex flex-col gap-3 h-[240px] overflow-y-scroll">
+    <div className="pb-4">
+      <div className="flex flex-col gap-3 h-[260px] overflow-y-scroll px-4">
         {taskList.map((task) => (
-          <div className="border-l-[6px] border-[#7e9fe5] flex justify-between items-center bg-white rounded-md p-4" key={`task-${task.id}`}>
+          <div
+            className="border-l-[6px] border-[#7e9fe5] flex justify-between items-center bg-white rounded-md p-4"
+            key={`task-${task.id}`}
+          >
             <div className="flex items-center gap-2">
-              <input type="checkbox" checked={task.completed} className="cursor-pointer"/>
-              <p className={classNames("", {
-                "line-through": task.completed
-              })}>{task.title}</p>
+              <Checkbox checked={task.completed} onChange={() => {}} />
+              <p
+                className={classNames("", {
+                  "line-through": task.completed,
+                })}
+              >
+                {task.title}
+              </p>
             </div>
-            <button className="text-gray-600/70">&#x1F5D9;</button>
+            <button className="text-gray-500 font-bold">&#x2715;</button>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default TaskList;

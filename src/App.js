@@ -12,6 +12,8 @@ function App() {
   const [taskList, setTaskList] = useAtom(taskListAtom);
   const [checked, setChecked] = useState(false);
 
+  
+
   const handleIsCheckedSwitchToggle = () => {
     setChecked((prev) => !prev);
   };
