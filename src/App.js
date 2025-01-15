@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import TaskList from "./components/TaskList";
+import Progress from "./components/Progress";
+import Switch from "./components/Switch";
+import AddTask from "./components/AddTask";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="p-4 flex justify-center items-center h-screen">
+      <main className="pt-10 pb-4 border border-black w-[500px] grid grid-cols-1 grid-rows-[1fr_auto] rounded-lg bg-gradient-to-t from-[#f2ebf8] to-[#f1feff]">
+        <div className="flex flex-col">
+          <Header />
+          <div className="h-[2px] bg-[#c7c5c5] mx-4" />
+          <Progress />
+          <TaskList />
+          <div className="h-[2px] bg-[#c7c5c5] mx-4" />
+          <Switch />
+        </div>
+        <AddTask />
+      </main>
     </div>
   );
 }
