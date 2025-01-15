@@ -10,7 +10,7 @@ import { Provider as JotaiProvider } from "jotai";
 
 function App() {
   const [taskList, setTaskList] = useAtom(taskListAtom);
-  const [checked, setChecked] = useState(false);
+  const [isSortedByCompleted, setIsSortedByCompleted] = useState(false);
 
   const handleAddTask = (task) => {
     setTaskList((prev) => [...prev, task]);
@@ -29,7 +29,7 @@ function App() {
   };
 
   const handleIsCheckedSwitchToggle = () => {
-    setChecked((prev) => !prev);
+    setIsSortedByCompleted((prev) => !prev);
   };
 
   const percentage = Math.floor(
@@ -38,6 +38,10 @@ function App() {
       : (taskList.filter((task) => task.isCompleted).length / taskList.length) *
           100
   );
+
+  const sortedTaskList = isSortedByCompleted
+    ? [...taskList.filter((task) => !task.isCompleted), ...taskList.filter((task) => task.isCompleted)]
+    : taskList;
 
   return (
     <JotaiProvider>
@@ -48,12 +52,12 @@ function App() {
             <div className="h-[2px] bg-[#c7c5c5] mx-4" />
             <Progress percentage={percentage} />
             <TaskList
-              taskList={taskList}
+              taskList={sortedTaskList}
               onDeleteTask={handleDeleteTask}
               onUpdateTaskStatus={handleUpdateTaskStatus}
             />
             <div className="h-[2px] bg-[#c7c5c5] mx-4" />
-            <Switch checked={checked} onChange={handleIsCheckedSwitchToggle} />
+            <Switch checked={isSortedByCompleted} onChange={handleIsCheckedSwitchToggle} />
           </div>
           <AddTask onAddTask={handleAddTask} />
         </main>
