@@ -6,7 +6,7 @@ import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 function App() {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   const handleIsCheckedSwitchToggle = () => {
     setChecked((prev) => !prev);

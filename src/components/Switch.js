@@ -4,7 +4,7 @@ import classNames from "classnames";
 const Switch = ({ checked, onChange }) => {
   return (
     <div className="p-4 flex justify-end items-top gap-2 pb-10">
-      <p className="text-gray-600/70">Move done things to end?</p>
+      <p className="text-gray-600/70 text-sm">Move done things to end?</p>
       <label className="inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
