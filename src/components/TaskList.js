@@ -3,7 +3,7 @@ import React from "react";
 const TaskList = () => {
   return (
     <div className="pl-4 pb-4">
-      <div className="flex flex-col gap-3 h-[300px] overflow-y-scroll">
+      <div className="flex flex-col gap-3 h-[240px] overflow-y-scroll">
         <div className="">TaskLis1</div>
         <div className="">TaskLis2</div>
         <div className="">TaskLis3</div>
