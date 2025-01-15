@@ -45,8 +45,8 @@ function App() {
 
   return (
     <JotaiProvider>
-      <div className="p-4 flex justify-center items-center h-screen">
-        <main className="pt-10 pb-4 border border-gray-200/30 w-[500px] grid grid-cols-1 grid-rows-[1fr_auto] rounded-lg bg-gradient-to-t from-[#efe3f4] to-[#eaf7f8]">
+      <div className="flex justify-center items-center h-[100dvh] lg:p-4">
+        <main className="h-full border border-gray-200/30 w-[500px] grid grid-cols-1 rounded-lg bg-gradient-to-t from-[#efe3f4] to-[#eaf7f8]">
           <div className="flex flex-col">
             <Header title="Todo List" description="Add things to do" />
             <div className="h-[2px] bg-[#c7c5c5] mx-4" />
