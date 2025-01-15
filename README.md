@@ -1,6 +1,6 @@
 # React Todo List
 
-一個使用 React 開發的現代化待辦事項清單應用。
+一個使用 React 開發的待辦事項清單應用。
 
 ## 技術棧
 
@@ -21,4 +21,3 @@
 - 使用 Jotai 進行全局狀態管理
 - 實現了自定義的 `atomWithLocalForage` 來持久化存儲數據
 - 通過 URL 獲得排序狀態
-

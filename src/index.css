@@ -7,14 +7,11 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  overscroll-behavior: none; /* 僅對 body 應用橡皮筋效果取消 */
 }
 
-/* 取消橡皮筋效果 */
-* {
-  overscroll-behavior: none;
-}
-
+/* 滾動條樣式 */
 ::-webkit-scrollbar {
   width: 10px; /* 垂直滾動條寬度 */
   height: 12px; /* 水平滾動條高度 */
@@ -27,7 +24,7 @@ body {
 
 /* 滾動條的背景 */
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #f0f0f0;
   border-radius: 4px;
 }
 
