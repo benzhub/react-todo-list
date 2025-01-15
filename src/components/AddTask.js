@@ -2,6 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+/**
+ * 新增任務組件：用於新增任務
+ * @param {function} onAddTask - 新增任務的回調函數
+ * **/
 function AddTask({ onAddTask }) {
   const [task, setTask] = useState("");
 

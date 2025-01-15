@@ -1,5 +1,10 @@
 import classNames from "classnames";
 
+/**
+* 複選框組件：用於切換任務完成狀態
+* @param {boolean} checked - 複選框狀態
+* @param {function} onChange - 狀態改變時的回調函數 
+ * **/
 function Checkbox({ checked, onChange }) {
   return (
     <label className="inline-flex items-center cursor-pointer">
