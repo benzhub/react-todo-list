@@ -1,6 +1,6 @@
 import React from "react";
 
-const Progress = ({ percentage = 0 }) => {
+function Progress ({ percentage = 0 }) {
   return (
     <div className="p-4 flex items-center gap-2">
       <span className="inline-block text-gray-600/70">{percentage}%</span>

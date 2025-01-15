@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({title="", description=""}) => {
+function Header ({title="", description=""}) {
   return (
     <nav className="p-4">
       <h1 className="text-3xl text-gray-600/70">{title}</h1>

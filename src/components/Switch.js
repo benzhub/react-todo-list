@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-const Switch = ({ checked, onChange }) => {
+function Switch ({ checked, onChange }) {
   return (
     <div className="p-4 flex justify-end items-top gap-2 pb-10">
       <p className="text-gray-600/70 text-sm">Move done things to end?</p>

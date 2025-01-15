@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AddTask = () => {
+function AddTask () {
   return (
     <div className='p-4'>
       <p className='text-gray-600/70'>Add to list</p>
